@@ -1,0 +1,11 @@
+.nav {
+  height: 10%;
+}
+
+.content {
+  height: 90%;
+}
+
+.skyblue {
+  background-image: linear-gradient(#7db6ec, white 80%);
+}

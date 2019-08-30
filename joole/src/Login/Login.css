@@ -1,0 +1,35 @@
+.login-box {
+  width: 500px;
+  height: 500px;
+  margin: auto;
+}
+
+.logo {
+  height: 150px;
+  width: 300px;
+}
+
+h4 {
+  color: #767070;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  border: #a6a6a6 2px solid;
+  border-radius: 8px;
+  padding: 5px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+::-webkit-input-placeholder {
+  color: #a6a6a6;
+}
+
+input[type="submit"] {
+  color: white;
+  background: #6485a2;
+  border-radius: 10px;
+  padding: 5px 35px;
+  font-size: 18px;
+}
