@@ -1,36 +1,39 @@
 import React from "react";
 import "./Login.css";
 
-import JooleLogo from "../jooleLogo.png";
+import Logo from "../Logo.png";
 
 export default function Login() {
   return (
     <div className="login-box mt-5">
       <div className="text-center">
-        <img src={JooleLogo} alt="logo" className="logo" />
+        <img src={Logo} alt="logo" className="logo" />
       </div>
       <h4 className="mt-2 text-center">Building Product Selection Platform</h4>
 
       <form className="mt-4">
         <div className="row my-3">
-          <div className="col">
+          <div className="col input-container">
             <input
               type="text"
               className="font-weight-bold"
               required
               placeholder="Username or Email"
             />
-            <i className="fas fa-user"></i>
+            <div>
+              <i className="fas fa-user fa-lg input-logo" />
+            </div>
           </div>
         </div>
         <div className="row my-3">
-          <div className="col">
+          <div className="col input-container">
             <input
               type="password"
               className="font-weight-bold"
+              required
               placeholder="Password"
             />
-            <i className="fas fa-lock"></i>
+            <i className="fas fa-lock fa-lg input-logo" />
           </div>
         </div>
         <div className="row">

@@ -16,19 +16,21 @@ export default class Auth extends Component {
   render() {
     return (
       <div className="skyblue">
-        <div className="nav">
-          <Nav auth={this.state.auth} />
-        </div>
-        <div className="content">
-          <Switch>
-            <Route path="/search" exact component={Search} />
-            <Route path="/login" exact component={Login} />
-            {this.state.auth ? (
-              <Redirect from="/" to="/search" />
-            ) : (
-              <Redirect from="/" to="/login" />
-            )}
-          </Switch>
+        <div className="inner-border">
+          <div className="nav">
+            <Nav auth={this.state.auth} />
+          </div>
+          <div className="content">
+            <Switch>
+              <Route path="/search" exact component={Search} />
+              <Route path="/login" exact component={Login} />
+              {this.state.auth ? (
+                <Redirect from="/" to="/search" />
+              ) : (
+                <Redirect from="/" to="/login" />
+              )}
+            </Switch>
+          </div>
         </div>
       </div>
     );

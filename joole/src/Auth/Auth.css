@@ -8,4 +8,15 @@
 
 .skyblue {
   background-image: linear-gradient(#7db6ec, white 80%);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.inner-border {
+  width: 99%;
+  height: 99%;
+  margin: 10px;
+  border: 1px solid #52799e;
+  padding-bottom: 5rem;
 }
