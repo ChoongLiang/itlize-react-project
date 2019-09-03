@@ -1,30 +1,27 @@
 import React, { Component } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 
+import { connect } from "react-redux";
+
 import Login from "../Login/Login";
 import Search from "../Search/Search";
-import Nav from "../Nav/Nav";
+import Nav from "../../components/Nav/Nav";
 
 import "./Auth.css";
 
-export default class Auth extends Component {
-  state = {
-    storage: {},
-    auth: false
-  };
-
+class Auth extends Component {
   render() {
     return (
       <div className="skyblue">
         <div className="inner-border">
           <div className="nav">
-            <Nav auth={this.state.auth} />
+            <Nav auth={this.props.authorization} />
           </div>
           <div className="content">
             <Switch>
               <Route path="/search" exact component={Search} />
               <Route path="/login" exact component={Login} />
-              {this.state.auth ? (
+              {this.props.authorization ? (
                 <Redirect from="/" to="/search" />
               ) : (
                 <Redirect from="/" to="/login" />
@@ -36,3 +33,11 @@ export default class Auth extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    authorization: state.authorized
+  };
+};
+
+export default connect(mapStateToProps)(Auth);

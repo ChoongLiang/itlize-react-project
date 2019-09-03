@@ -1,3 +1,7 @@
+/*
+ * Login container
+ */
+
 .login-box {
   width: 500px;
   height: 500px;
@@ -13,6 +17,10 @@ h4 {
   color: #767070;
 }
 
+/*
+ * Input
+ */
+
 input[type="text"],
 input[type="password"] {
   width: 100%;
@@ -22,16 +30,9 @@ input[type="password"] {
   font-family: "Times New Roman", Times, serif;
 }
 
-::-webkit-input-placeholder {
-  color: #a6a6a6;
-}
-
-input[type="submit"] {
-  color: white;
-  background: #6485a2;
-  border-radius: 10px;
-  padding: 5px 35px;
-  font-size: 18px;
+.input-container {
+  position: relative;
+  display: inline-block;
 }
 
 .input-logo {
@@ -43,7 +44,22 @@ input[type="submit"] {
   color: #8e8e8e;
 }
 
-.input-container {
-  position: relative;
-  display: inline-block;
+::-webkit-input-placeholder {
+  color: #a6a6a6;
+}
+
+/*
+ * Login button
+ */
+
+.login-btn {
+  color: white;
+  background: #6485a2;
+  border-radius: 10px;
+  padding: 5px 35px;
+  font-size: 18px;
+}
+
+.login-btn:disabled {
+  background: #95b0c9;
 }

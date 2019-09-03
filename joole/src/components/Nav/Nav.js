@@ -1,5 +1,5 @@
 import React from "react";
-import profileImg from "../profileImg.jpg";
+import profileImg from "../../profileImg.jpg";
 
 const navBar = props => {
   if (props.auth) {

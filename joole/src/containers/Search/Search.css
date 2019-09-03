@@ -1,0 +1,9 @@
+*:focus {
+  outline: none;
+}
+
+.search-box {
+  width: 800px;
+  height: 500px;
+  margin: auto;
+}
