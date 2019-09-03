@@ -21,6 +21,7 @@ const navBar = props => {
                 style={profile}
                 className="rounded-circle"
                 src={profileImg}
+                alt="user profile img"
               />
             </li>
           </ul>
