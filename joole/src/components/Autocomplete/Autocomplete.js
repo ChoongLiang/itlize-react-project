@@ -4,11 +4,14 @@ import "./Autocomplete.css";
 
 export default class Autocomplete extends Component {
   static propTypes = {
-    suggestions: PropTypes.instanceOf(Array)
+    suggestions: PropTypes.instanceOf(Array),
+    onSearchTerm: PropTypes.instanceOf(Function)
   };
 
   static defaultProps = {
-    suggestions: []
+    suggestions: [],
+    onSearchTerm: () =>
+      console.log("(Autocomplete) Did not receive onChange from parent!")
   };
 
   constructor(props) {
@@ -43,6 +46,7 @@ export default class Autocomplete extends Component {
       showSuggestions: false,
       userInput: event.target.innerText
     });
+    this.props.onSearchTerm(event.target.innerText.trim());
   };
 
   onFocus = () => {

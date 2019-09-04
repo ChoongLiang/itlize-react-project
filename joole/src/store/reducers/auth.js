@@ -1,10 +1,10 @@
-import * as actions from "./actions";
+import * as actions from "../actions/actionTypes";
 
 const initial = {
   authorized: false
 };
 
-const reducer = (state = initial, action) => {
+const auth = (state = initial, action) => {
   switch (action.type) {
     case actions.LOGIN:
       const loginData = {
@@ -29,4 +29,4 @@ const reducer = (state = initial, action) => {
   }
 };
 
-export default reducer;
+export default auth;

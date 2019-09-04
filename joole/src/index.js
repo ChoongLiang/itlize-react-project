@@ -7,9 +7,14 @@ import * as serviceWorker from "./serviceWorker";
 // React & Redux
 import { createStore } from "redux";
 import { Provider } from "react-redux";
-import reducer from "./store/reducer";
+import reducer from "./store/reducers/auth";
 
-const store = createStore(reducer);
+// Debugger
+import { compose } from "redux";
+
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(reducer, composeEnhancer());
 
 ReactDOM.render(
   <Provider store={store}>

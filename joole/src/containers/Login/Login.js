@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 
 import { connect } from "react-redux";
-import * as actions from "../../store/actions";
+import * as actions from "../../store/actions/actionTypes";
 
 import Search from "../Search/Search";
 
@@ -117,6 +117,15 @@ class Login extends Component {
   render() {
     let username = this.state.loginForm.username;
     let password = this.state.loginForm.password;
+    let message = null;
+
+    if (this.props.location.state !== undefined) {
+      message = (
+        <div className="alert alert-danger" role="alert">
+          {this.props.location.state.message}
+        </div>
+      );
+    }
     return (
       <div className="login-box mt-5">
         <Switch>
@@ -125,6 +134,7 @@ class Login extends Component {
             <Redirect from="/login" to="/search" />
           ) : null}
         </Switch>
+        {message}
 
         <div className="text-center">
           <img src={Logo} alt="logo" className="logo" />
@@ -142,7 +152,6 @@ class Login extends Component {
                 required={username.validation.required}
                 placeholder={username.elementConfig.placeholder}
                 onChange={event => this.handleChange(event, 0)}
-                // invalid={(!username.valid).toString()}
                 name="username"
               />
               <div>
@@ -158,7 +167,6 @@ class Login extends Component {
                 required={password.validation.required}
                 placeholder={password.elementConfig.placeholder}
                 onChange={event => this.handleChange(event, 1)}
-                // invalid={(!password.valid).toString()}
                 name="password"
               />
               <i className="fas fa-lock fa-lg input-logo" />
