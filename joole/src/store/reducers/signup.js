@@ -1,50 +1,56 @@
 import * as actionTypes from "../actions/actionTypes";
 
 const initial = {
-  authorized: false,
-  token: null,
-  loading: false,
   error: null,
+  loading: false,
+  authRedirectPath: "/",
   success: false
 };
 
 const start = (state, action) => {
   return {
     ...state,
+    error: null,
     loading: true,
-    success: false,
-    authorized: false
+    success: false
   };
 };
 
 const success = (state, action) => {
   return {
     ...state,
+    error: null,
     loading: false,
-    success: true,
-    authorized: true,
-    token: action.token
+    success: true
   };
 };
 
 const fail = (state, action) => {
   return {
     ...state,
+    error: action.error,
     loading: false,
-    success: false,
-    authorized: false,
-    error: action.error
+    success: false
+  };
+};
+
+const setRedirectPath = (state, action) => {
+  return {
+    ...state,
+    authRedirectPath: action.path
   };
 };
 
 const reducer = (state = initial, action) => {
   switch (action.type) {
-    case actionTypes.AUTH_START:
+    case actionTypes.SIGNUP_START:
       return start(state, action);
-    case actionTypes.AUTH_SUCCESS:
+    case actionTypes.SIGNUP_SUCCESS:
       return success(state, action);
-    case actionTypes.AUTH_FAIL:
+    case actionTypes.SIGNUP_FAIL:
       return fail(state, action);
+    case actionTypes.SET_REDIRECT_PATH:
+      return setRedirectPath(state, action);
     default:
       return state;
   }

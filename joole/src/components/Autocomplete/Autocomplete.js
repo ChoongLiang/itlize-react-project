@@ -114,6 +114,7 @@ export default class Autocomplete extends Component {
               onFocus={onFocus}
               onBlur={onBlur}
               value={userInput}
+              className="normal-input"
             />
             <div className="arrow-down" id="input-arrow" />
             <div>

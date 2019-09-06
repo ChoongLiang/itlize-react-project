@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import Login from "../Login/Login";
 import Search from "../Search/Search";
 import Nav from "../../components/Nav/Nav";
+import Signup from "../Signup/Signup";
 
 import "./Auth.css";
 
@@ -21,6 +22,7 @@ class Auth extends Component {
             <Switch>
               <Route path="/search" exact component={Search} />
               <Route path="/login" exact component={Login} />
+              <Route path="/signup" exact component={Signup} />
               {this.props.authorization ? (
                 <Redirect from="/" to="/search" />
               ) : (
@@ -36,7 +38,7 @@ class Auth extends Component {
 
 const mapStateToProps = state => {
   return {
-    authorization: state.authorized
+    authorization: state.auth.token !== null
   };
 };
 

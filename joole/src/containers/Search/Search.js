@@ -83,17 +83,12 @@ class Search extends Component {
 
 const mapStateToProps = state => {
   return {
-    authorization: state.authorized
+    authorization: state.auth.token !== null
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    login: (username, password) =>
-      dispatch({
-        type: actions.LOGIN,
-        loginData: { username: username, password: password }
-      }),
     search: term =>
       dispatch({
         type: actions.SEARCH,

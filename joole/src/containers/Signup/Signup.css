@@ -1,0 +1,15 @@
+.valid {
+  width: 100%;
+  border: #28a745 2px solid;
+  border-radius: 8px;
+  padding: 5px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.invalid {
+  width: 100%;
+  border: #dc3545 2px solid;
+  border-radius: 8px;
+  padding: 5px;
+  font-family: "Times New Roman", Times, serif;
+}

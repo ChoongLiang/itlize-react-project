@@ -1,5 +1,6 @@
 import React from "react";
 import profileImg from "../../profileImg.jpg";
+import { NavLink } from "react-router-dom";
 
 const navBar = props => {
   if (props.auth) {
@@ -32,7 +33,14 @@ const navBar = props => {
   return (
     <nav className="navbar w-100">
       <div className="ml-auto">
-        <a className="nav-link text-secondary font-weight-bold">Sign up</a>
+        {/* <a className="nav-link text-secondary font-weight-bold" >Sign up</a> */}
+        <NavLink
+          className="nav-link text-secondary font-weight-bold"
+          activeClassName="d-none"
+          to="/signup"
+        >
+          Sign up
+        </NavLink>
       </div>
     </nav>
   );

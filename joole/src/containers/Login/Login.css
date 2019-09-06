@@ -21,13 +21,13 @@ h4 {
  * Input
  */
 
-input[type="text"],
-input[type="password"] {
+.normal-input {
   width: 100%;
   border: #a6a6a6 2px solid;
   border-radius: 8px;
   padding: 5px;
   font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
 }
 
 .input-container {
