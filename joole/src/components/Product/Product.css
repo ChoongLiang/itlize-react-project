@@ -1,0 +1,16 @@
+.add-to-btn {
+  color: white;
+  background: #6485a2;
+  border-radius: 10px;
+  padding: 5px 30px 5px 15px;
+  font-size: 18px;
+}
+
+.checkbox-lbl {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+input[type="checkbox"] {
+  border: 1px #48759b solid;
+}

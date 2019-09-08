@@ -18,8 +18,39 @@ import { compose } from "redux";
 // thunk
 import thunk from "redux-thunk";
 
+// Interceptor
+import axios from "axios";
+
+// Global interceptor configuration
+axios.defaults.baseURL = "http://localhost:8080/";
+axios.defaults.headers.common["Authorization"] = null;
+axios.defaults.headers.post["Content-Type"] = "application/json";
+
+axios.interceptors.request.use(
+  request => {
+    console.log(request);
+    request.headers.Authorization = localStorage.getItem("token");
+    return request;
+  },
+  error => {
+    console.log(error);
+    return Promise.reject(error);
+  }
+);
+
+// axios.interceptors.response.use(response => {
+//     console.log(response);
+//     // Edit request config
+//     return response;
+// }, error => {
+//     console.log(error);
+//     return Promise.reject(error);
+// });
+
+// React-redux debugger
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
+// Combine all reducer
 const rootReducer = combineReducers({
   auth: authReducer,
   search: searchReducer,

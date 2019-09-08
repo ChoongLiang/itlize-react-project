@@ -130,7 +130,7 @@ class Login extends Component {
       };
       loading = (
         <div className="d-flex justify-content-center" style={style}>
-          <Spinner width="200px" height="200px" />
+          <Spinner width="50px" height="50px" />
         </div>
       );
       formClass = "d-none";

@@ -1,2 +1,3 @@
 export { signup } from "./signup";
-export { login } from "./auth";
+export { login, logout } from "./auth";
+export { init, search } from "./search";

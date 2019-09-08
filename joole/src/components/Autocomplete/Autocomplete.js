@@ -1,36 +1,26 @@
 import React, { Component, Fragment } from "react";
-import PropTypes from "prop-types";
 import "./Autocomplete.css";
+import * as actions from "../../store/actions/package";
 
-export default class Autocomplete extends Component {
-  static propTypes = {
-    suggestions: PropTypes.instanceOf(Array),
-    onSearchTerm: PropTypes.instanceOf(Function)
-  };
+import { connect } from "react-redux";
 
-  static defaultProps = {
-    suggestions: [],
-    onSearchTerm: () =>
-      console.log("(Autocomplete) Did not receive onChange from parent!")
-  };
-
-  constructor(props) {
-    super(props);
-
+class Autocomplete extends Component {
+  constructor() {
+    super();
     this.state = {
       filteredSuggestions: [],
       showSuggestions: false,
-      userInput: ""
+      userInput: "",
+      selected: null
     };
   }
 
   onChange = e => {
     const userInput = e.currentTarget.value;
-    const { suggestions } = this.props;
 
-    const filteredSuggestions = suggestions.filter(
+    const filteredSuggestions = this.props.categories.filter(
       suggestion =>
-        suggestion.toLowerCase().indexOf(userInput.toLowerCase()) > -1
+        suggestion.name.toLowerCase().indexOf(userInput.toLowerCase()) > -1
     );
 
     this.setState({
@@ -44,23 +34,41 @@ export default class Autocomplete extends Component {
     this.setState({
       filteredSuggestions: [],
       showSuggestions: false,
-      userInput: event.target.innerText
+      userInput: event.target.innerText,
+      selected: this.findCategory(event.target.innerText)
     });
-    this.props.onSearchTerm(event.target.innerText.trim());
   };
 
+  findCategory(value) {
+    for (let category of this.props.categories) {
+      if (category.name === value) {
+        return category;
+      }
+    }
+    return null;
+  }
+
   onFocus = () => {
-    this.setState({
-      filteredSuggestions: this.props.suggestions.map(suggestion => suggestion),
-      showSuggestions: true
-    });
+    if (this.props.categories !== null) {
+      this.setState({
+        filteredSuggestions: this.props.categories.map(
+          suggestion => suggestion
+        ),
+        showSuggestions: true
+      });
+    }
   };
 
   onBlur = () => {
     this.setState({
-      filteredSuggestions: [],
       showSuggestions: false
     });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    this.props.search(this.state.selected);
+    this.props.history.push("/search/" + this.state.selected.name);
   };
 
   render() {
@@ -69,7 +77,8 @@ export default class Autocomplete extends Component {
       onClick,
       onFocus,
       onBlur,
-      state: { filteredSuggestions, showSuggestions, userInput }
+      handleSubmit,
+      state: { filteredSuggestions, showSuggestions, userInput, selected }
     } = this;
 
     let optionsList = [];
@@ -80,8 +89,12 @@ export default class Autocomplete extends Component {
           <div className="list-group" id="autocomplete">
             {filteredSuggestions.map(suggestion => {
               return (
-                <a className="list-item" key={suggestion} onMouseDown={onClick}>
-                  {suggestion}
+                <a
+                  className="list-item"
+                  key={suggestion.id}
+                  onMouseDown={onClick}
+                >
+                  {suggestion.name}
                 </a>
               );
             })}
@@ -98,34 +111,53 @@ export default class Autocomplete extends Component {
 
     return (
       <Fragment>
-        <div className="row my-3">
-          <div className="col input-container">
-            <select className="select-category">
-              <option>Mechanical</option>
-            </select>
-            <div className="arrow-down" id="search-arrow" />
-            <input
-              type="text"
-              required
-              placeholder="search..."
-              onChange={onChange}
-              name="search"
-              id="searchInput"
-              onFocus={onFocus}
-              onBlur={onBlur}
-              value={userInput}
-              className="normal-input"
-            />
-            <div className="arrow-down" id="input-arrow" />
-            <div>
-              <button className="input-logo" id="search-btn">
-                <i id="search-logo" className="fas fa-search" />
-              </button>
+        <form onSubmit={handleSubmit} autoComplete="off" className="w-100">
+          <div className="row my-3">
+            <div className="col input-container">
+              <select className="select-category">
+                <option>Mechanical</option>
+              </select>
+              <div className="arrow-down" id="search-arrow" />
+              <input
+                type="text"
+                required
+                placeholder="search..."
+                onChange={onChange}
+                name="search"
+                id="searchInput"
+                onFocus={onFocus}
+                onBlur={onBlur}
+                value={userInput}
+                className="normal-input"
+              />
+              <div className="arrow-down" id="input-arrow" />
+              <div>
+                <button className="input-logo" id="search-btn">
+                  <i id="search-logo" className="fas fa-search" />
+                </button>
+              </div>
+              {optionsList}
             </div>
-            {optionsList}
           </div>
-        </div>
+        </form>
       </Fragment>
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    categories: state.search.categories
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    search: category => dispatch(actions.search(category))
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Autocomplete);

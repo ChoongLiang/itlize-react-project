@@ -8,7 +8,7 @@ export const login = (username, password) => {
         username: username,
         password: password
       },
-      url = "http://localhost:8080/api/auth/signin";
+      url = "api/auth/signin";
 
     axios
       .post(url, user)
@@ -50,5 +50,12 @@ export const setAuthRedirectPath = path => {
   return {
     type: actionTypes.SET_REDIRECT_PATH,
     path: path
+  };
+};
+
+export const logout = () => {
+  localStorage.removeItem("token");
+  return {
+    type: actionTypes.LOG_OUT
   };
 };

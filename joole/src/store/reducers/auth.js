@@ -37,6 +37,16 @@ const fail = (state, action) => {
   };
 };
 
+const logout = (state, action) => {
+  return {
+    ...state,
+    loading: false,
+    success: false,
+    authorized: false,
+    token: null
+  };
+};
+
 const reducer = (state = initial, action) => {
   switch (action.type) {
     case actionTypes.AUTH_START:
@@ -45,6 +55,8 @@ const reducer = (state = initial, action) => {
       return success(state, action);
     case actionTypes.AUTH_FAIL:
       return fail(state, action);
+    case actionTypes.LOG_OUT:
+      return logout(state, action);
     default:
       return state;
   }
