@@ -32,11 +32,11 @@ class Auth extends Component {
               <Switch>
                 <Route path="/search" exact component={Search} />
                 <Route path={"/search/:category"} exact component={Products} />
-                {/* <Route
+                <Route
                   path={"/search/:category/:id"}
                   exact
                   component={Product_Detail}
-                /> */}
+                />
                 <Redirect from="/" to="/search" />
               </Switch>
             ) : (

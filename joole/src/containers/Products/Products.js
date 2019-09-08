@@ -6,23 +6,14 @@ import Product from "../../components/Product/Product";
 import Sidebar from "../../components/Sidebar/Sidebar";
 
 class Products extends Component {
-  constructor() {
-    super();
-    this.clickHandler = this.clickHandler.bind(this);
-  }
-
-  clickHandler() {
-    console.log(" clicked");
-    this.props.history.push("/" + this.props.active.name + "/");
-  }
-
   render() {
     let productList = this.props.active.products.map(product => {
       return (
         <Product
           detail={product}
           key={product.id}
-          clickHandler={this.clickHandler}
+          history={this.props.history}
+          match={this.props.match}
         />
       );
     });
@@ -51,10 +42,6 @@ const mapStateToProps = state => {
     categories: state.search.categories,
     active: state.search.active
   };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {};
 };
 
 export default connect(

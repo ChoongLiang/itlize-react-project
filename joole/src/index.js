@@ -11,6 +11,7 @@ import { Provider } from "react-redux";
 import authReducer from "./store/reducers/auth";
 import searchReducer from "./store/reducers/search";
 import signupReducer from "./store/reducers/signup";
+import productReducer from "./store/reducers/product";
 
 // Debugger
 import { compose } from "redux";
@@ -38,15 +39,6 @@ axios.interceptors.request.use(
   }
 );
 
-// axios.interceptors.response.use(response => {
-//     console.log(response);
-//     // Edit request config
-//     return response;
-// }, error => {
-//     console.log(error);
-//     return Promise.reject(error);
-// });
-
 // React-redux debugger
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -54,7 +46,8 @@ const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const rootReducer = combineReducers({
   auth: authReducer,
   search: searchReducer,
-  signup: signupReducer
+  signup: signupReducer,
+  product: productReducer
 });
 
 const store = createStore(rootReducer, composeEnhancer(applyMiddleware(thunk)));

@@ -5,15 +5,12 @@ import * as actions from "../../store/actions/package";
 import { connect } from "react-redux";
 
 class Autocomplete extends Component {
-  constructor() {
-    super();
-    this.state = {
-      filteredSuggestions: [],
-      showSuggestions: false,
-      userInput: "",
-      selected: null
-    };
-  }
+  state = {
+    filteredSuggestions: [],
+    showSuggestions: false,
+    userInput: "",
+    selected: null
+  };
 
   onChange = e => {
     const userInput = e.currentTarget.value;
