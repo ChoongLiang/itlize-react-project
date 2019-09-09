@@ -100,6 +100,10 @@
   background: #f2f2f2;
 }
 
+.detail-table {
+  width: 100%;
+}
+
 /*
  * Contact table
  */

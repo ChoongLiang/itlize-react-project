@@ -51,7 +51,7 @@ function Detail(props) {
 
       {/* Product Header */}
       <div className="row px-3" style={header_height}>
-        <div className="col-4">
+        <div className="col-4 px-0">
           <img
             src={props.product["image_url"]}
             alt="Product Image"
@@ -217,7 +217,7 @@ function Detail(props) {
                       <td>{props.product["sound_at_max_speed"]}</td>
                     </tr>
                     <tr>
-                      <td>Fan sweep diameter (in</td>
+                      <td>Fan sweep diameter (in)</td>
                       <td>{props.product["fan_sweep_diameter"]}</td>
                     </tr>
                     <tr>

@@ -25,3 +25,16 @@
 .active-breadcrum {
   color: #23527a;
 }
+
+.compare-btn {
+  color: white;
+  background: #6485a2;
+  border-radius: 10px;
+  padding: 7px 20px;
+  font-size: 18px;
+}
+
+.compare-btn:hover {
+  color: white;
+  text-decoration: none;
+}

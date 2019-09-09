@@ -64,6 +64,7 @@ select {
   border-radius: 0;
   border: #a6a6a6 1px solid;
   background: white;
+  z-index: 100;
 }
 
 .list-item:hover {

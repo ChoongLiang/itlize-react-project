@@ -10,6 +10,7 @@ import Nav from "../../components/Nav/Nav";
 import Signup from "../Signup/Signup";
 import Products from "../Products/Products";
 import Product_Detail from "../Products/Detail/Detail";
+import Compare from "../Products/Compare/Compare";
 
 import "./Auth.css";
 
@@ -32,6 +33,11 @@ class Auth extends Component {
               <Switch>
                 <Route path="/search" exact component={Search} />
                 <Route path={"/search/:category"} exact component={Products} />
+                <Route
+                  path={"/search/:category/compare"}
+                  exact
+                  component={Compare}
+                />
                 <Route
                   path={"/search/:category/:id"}
                   exact

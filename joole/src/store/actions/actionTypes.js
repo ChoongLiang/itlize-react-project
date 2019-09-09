@@ -19,3 +19,6 @@ export const CATEGORY_FAIL = "CATEGORY_FAIL";
 // Product
 export const SET_CURRENT_PRODUCT = "SET_CURRENT_PRODUCT";
 export const PRODUCT_ERROR = "PRODUCT_ERROR";
+
+// Compare
+export const COMPARE_PRODUCT = "COMPARE_PRODUCT";
