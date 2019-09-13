@@ -82,14 +82,20 @@ function Detail(props) {
       <div>
         {/* Navigation */}
         <nav className="nav-bg">
-          <li className="product-nav-item">Product Summary</li>
-          <li className="product-nav-item">Product Details</li>
-          <li className="product-nav-item">Contact</li>
+          <a className="product-nav-item" href="#summary">
+            Product Summary
+          </a>
+          <a className="product-nav-item" href="#detail">
+            Product Details
+          </a>
+          <a className="product-nav-item" href="#contact">
+            Contact
+          </a>
         </nav>
 
         <div className="product-content px-2">
           {/* Product Summary */}
-          <div className="px-2">
+          <div className="px-2" id="summary">
             <h5 className="header-color pt-3">Product Summary</h5>
             <div className="row no-gutters">
               <div className="col">
@@ -246,7 +252,7 @@ function Detail(props) {
           </div>
 
           {/* Product Detail */}
-          <div className="px-2">
+          <div className="px-2" id="detail">
             <h5 className="header-color pt-3">Product Details</h5>
             <table className="detail-table">
               <thead>
@@ -259,7 +265,7 @@ function Detail(props) {
           </div>
 
           {/* Contact */}
-          <div className="px-2 mb-4">
+          <div className="px-2 mb-4" id="contact">
             <h5 className="header-color pt-3">Contact</h5>
             <div className="row">
               <div className="col">

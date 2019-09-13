@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Autocomplete from "../../components/Autocomplete/Autocomplete";
+import { Redirect } from "react-router-dom";
 
 import { connect } from "react-redux";
 import * as actions from "../../store/actions/package";
@@ -20,8 +21,25 @@ class Search extends Component {
       );
     }
 
+    let redirect;
+    if (!this.props.authorized) {
+      console.log("NOT AUTHORIZWZ");
+      redirect = (
+        <Redirect
+          to={{
+            pathname: "/login",
+            state: {
+              showMessage: true,
+              message: "Please login first!"
+            }
+          }}
+        />
+      );
+    }
+
     return (
       <div className="search-box mt-5">
+        {redirect}
         <div className="text-center">
           <img src={Logo} alt="logo" className="logo" />
         </div>
@@ -37,6 +55,12 @@ class Search extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    authorized: state.auth.success
+  };
+};
+
 const mapDispatchToProps = dispatch => {
   return {
     init: () => dispatch(actions.init())
@@ -44,6 +68,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Search);

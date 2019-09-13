@@ -21,8 +21,17 @@
 
 .product-nav-item {
   padding: 3.5px 45px;
-  border: #c2c2c2 solid 1px;
+  border-left: #c2c2c2 solid 1px;
   display: inline;
+  color: black;
+}
+
+.product-nav-item:last-child {
+  border-right: #c2c2c2 solid 1px;
+}
+
+.product-nav-item:hover {
+  text-decoration: none;
 }
 
 .active {
@@ -102,6 +111,10 @@
 
 .detail-table {
   width: 100%;
+}
+
+.detail-table > tbody > tr > td {
+  padding-left: 20px;
 }
 
 /*

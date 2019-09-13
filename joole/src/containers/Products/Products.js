@@ -57,7 +57,7 @@ class Products extends Component {
     return (
       <div className="new-bg">
         <div className="row">
-          <div className="col-3">
+          <div className="col-3 sidebar-outline pr-0">
             <Sidebar />
           </div>
           <div className="col-9">

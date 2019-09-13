@@ -38,3 +38,8 @@
   color: white;
   text-decoration: none;
 }
+
+/* Sidebar outline */
+.sidebar-outline {
+  border: 1px #c5c8cc solid;
+}

@@ -51,7 +51,7 @@ function Product(props) {
             {props.detail["sound_at_max_speed"]} dBA at max speed
           </p>
           <p className="mb-0">
-            {props.detail["fan_speed_diameter"]} fan sweep diameter
+            {props.detail["fan_sweep_diameter"]}" fan sweep diameter
           </p>
         </div>
         <p className="mb-0 text-danger">Past specifications:</p>

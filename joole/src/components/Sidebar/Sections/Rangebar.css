@@ -1,0 +1,31 @@
+/* Container */
+.input-range {
+  width: 80%;
+  margin: auto;
+}
+
+/* Label */
+.input-range__label--value,
+.input-range__label-container {
+  display: none;
+}
+
+/* Slider point */
+.input-range__slider {
+  margin-top: -0.5rem;
+  background: #a6a6a6;
+  border: 1px solid #a6a6a6;
+}
+
+/* Track */
+.input-range__track {
+  height: 0.1rem;
+}
+
+.input-range__track--background {
+  top: 80%;
+}
+
+.input-range__track--active {
+  background: #a6a6a6;
+}

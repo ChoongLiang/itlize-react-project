@@ -13,6 +13,7 @@ import searchReducer from "./store/reducers/search";
 import signupReducer from "./store/reducers/signup";
 import productReducer from "./store/reducers/product";
 import compareReducer from "./store/reducers/compare";
+import filterReducer from "./store/reducers/filter";
 
 // Debugger
 import { compose } from "redux";
@@ -49,7 +50,8 @@ const rootReducer = combineReducers({
   search: searchReducer,
   signup: signupReducer,
   product: productReducer,
-  compare: compareReducer
+  compare: compareReducer,
+  filter: filterReducer
 });
 
 const store = createStore(rootReducer, composeEnhancer(applyMiddleware(thunk)));

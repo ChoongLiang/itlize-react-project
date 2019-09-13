@@ -75,7 +75,7 @@ class Autocomplete extends Component {
       onFocus,
       onBlur,
       handleSubmit,
-      state: { filteredSuggestions, showSuggestions, userInput, selected }
+      state: { filteredSuggestions, showSuggestions, userInput }
     } = this;
 
     let optionsList = [];

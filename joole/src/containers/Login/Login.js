@@ -150,6 +150,7 @@ class Login extends Component {
 
     return (
       <div className="login-box mt-5">
+        {redirect}
         <div className="text-center">
           <img src={Logo} alt="logo" className="logo" />
         </div>
@@ -157,9 +158,8 @@ class Login extends Component {
           Building Product Selection Platform
         </h4>
         {message}
-        {loading}
         {error}
-        {redirect}
+        {loading}
         <form className={formClass} onSubmit={this.handleSubmit}>
           <div className="row my-3">
             <div className="col input-container">

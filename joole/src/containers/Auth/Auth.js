@@ -49,15 +49,7 @@ class Auth extends Component {
               <Switch>
                 <Route path="/login" exact component={Login} />
                 <Route path="/signup" exact component={Signup} />
-                <Redirect
-                  to={{
-                    pathname: "/login",
-                    state: {
-                      showMessage: true,
-                      message: "Please login first!"
-                    }
-                  }}
-                />
+                <Redirect from="/" to="/login" />
               </Switch>
             )}
           </div>
